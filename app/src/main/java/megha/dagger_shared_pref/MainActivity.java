@@ -27,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
         DaggerSharedComponent.builder().sharedModule(new SharedModule(this)).build().inject(this);
 
+        String str=editText.getText().toString();
         SharedPreferences.Editor editor=sharedPreferences.edit();
-        editor.putString("text",editText.getText().toString()).apply();
+        editor.putString("text",str).apply();
 
 
         btn.setOnClickListener(new View.OnClickListener() {

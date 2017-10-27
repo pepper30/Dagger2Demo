@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -12,13 +14,14 @@ import dagger.Provides;
  */
 @Module
 public class SharedModule {
- private Activity activity;
+ public Activity activity;
   public SharedModule(Activity activity){
       this.activity=activity;
   }
 
     @Provides
+    @Singleton
     SharedPreferences getsharedPreferences(){
-      return activity.getSharedPreferences("Mypref",Context.MODE_PRIVATE);
+      return activity.getSharedPreferences("text",Context.MODE_PRIVATE);
   }
 }
